@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0DBF9F5B-FE61-45D8-B7B8-C41B54383C55}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataLayer</RootNamespace>
+    <AssemblyName>DataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\OurCmsContext.cs" />
+    <Compile Include="Migrations\202012301200462_Initial_Database.cs" />
+    <Compile Include="Migrations\202012301200462_Initial_Database.designer.cs">
+      <DependentUpon>202012301200462_Initial_Database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101021154317_Add_Tags_Pages.cs" />
+    <Compile Include="Migrations\202101021154317_Add_Tags_Pages.Designer.cs">
+      <DependentUpon>202101021154317_Add_Tags_Pages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101041651218_Add_Re_Pages.cs" />
+    <Compile Include="Migrations\202101041651218_Add_Re_Pages.Designer.cs">
+      <DependentUpon>202101041651218_Add_Re_Pages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AdminLogin.cs" />
+    <Compile Include="Models\AllowHtmlAttribute.cs" />
+    <Compile Include="Models\Page.cs" />
+    <Compile Include="Models\PageComment.cs" />
+    <Compile Include="Models\PageGroup.cs" />
+    <Compile Include="Models\ticket\DataRezervcs.cs" />
+    <Compile Include="Models\ticket\Hour.cs" />
+    <Compile Include="Models\ticket\Numbering.cs" />
+    <Compile Include="Models\ticket\Reservation.cs" />
+    <Compile Include="Models\ticket\Station.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ILoginRepository.cs" />
+    <Compile Include="Repositories\IPageCommentRepository.cs" />
+    <Compile Include="Repositories\IPageGroupRepository.cs" />
+    <Compile Include="Repositories\IPageRepository.cs" />
+    <Compile Include="Repositories\ticketR\IDataRezervcsRepository.cs" />
+    <Compile Include="Repositories\ticketR\IHourReservation.cs" />
+    <Compile Include="Repositories\ticketR\IResrvationRepository.cs" />
+    <Compile Include="Repositories\ticketR\IStationRepositorycs.cs" />
+    <Compile Include="Services\LoginRepository.cs" />
+    <Compile Include="Services\PageCommentRepository.cs" />
+    <Compile Include="Services\PageGroupRepository.cs" />
+    <Compile Include="Services\PageRepository.cs" />
+    <Compile Include="Services\ticketS\HourRepository.cs" />
+    <Compile Include="Services\ticketS\ReservationRepository.cs" />
+    <Compile Include="Services\ticketS\StatinRepositorycs.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\rezViewModel.cs" />
+    <Compile Include="ViewModel\ShowGroupViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202012301200462_Initial_Database.resx">
+      <DependentUpon>202012301200462_Initial_Database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101021154317_Add_Tags_Pages.resx">
+      <DependentUpon>202101021154317_Add_Tags_Pages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101041651218_Add_Re_Pages.resx">
+      <DependentUpon>202101041651218_Add_Re_Pages.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
